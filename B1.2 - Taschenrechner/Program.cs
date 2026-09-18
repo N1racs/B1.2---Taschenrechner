@@ -16,7 +16,7 @@ namespace B1._2___Taschenrechner
             string first = "Erste Zahl!";
             string second = "Zweite Zahl!";
             string enterOperator = "Operator eingeben!";
-            string endResult = "Resultat =";
+            string endResult = "Resultat = ";
             string invalide = "Ungültige Zahl! Versuche es noch einmal.";
 
             //console output
