@@ -13,31 +13,33 @@ namespace B1._2___Taschenrechner
         {
 
             //Text
-            string first = "Erste Zahl!";
-            string second = "Zweite Zahl!";
-            string enterOperator = "Operator eingeben! (+, -, /, *)";
+            string first = "Erste Zahl: ";
+            string second = "Zweite Zahl: ";
+            string enterOperator = "Operator eingeben (+, -, /, *) : ";
             string endResult = "Resultat = ";
             string invalide = "Ungültige Zahl! \n" +
-                "Versuche es noch einmal.";
+                "Versuche es noch einmal: ";
+            string invalideOpp = "Ungültiger Operator! \n" +
+                "Versuche es noch einmal: ";
 
             //console output
             float a, b, result;
             Console.WriteLine(first);
-            Console.Write("> ");
+            Console.Write(">: ");
 
             while (!float.TryParse(Console.ReadLine(), out a))
             {
                 Console.WriteLine(invalide);
-                Console.Write("> ");
+                Console.Write(">: ");
             }
 
             Console.WriteLine(second);
-            Console.Write("> ");
+            Console.Write(">: ");
 
             while (!float.TryParse(Console.ReadLine(), out b))
             {
                 Console.WriteLine(invalide);
-                Console.Write("> ");
+                Console.Write(">: ");
             }
 
             string opp;
@@ -45,13 +47,13 @@ namespace B1._2___Taschenrechner
             do
             {
                 Console.WriteLine(enterOperator);
-                Console.Write("> ");
+                Console.Write(">: ");
 
                 opp = Console.ReadLine();
 
                 if (opp != "+" && opp != "-" && opp != "*" && opp != "/")
                 {
-                    Console.WriteLine(invalide);
+                    Console.WriteLine(invalideOpp);
                 }
 
             } 
@@ -84,7 +86,6 @@ namespace B1._2___Taschenrechner
                     
             }
 
-            Console.ReadLine();
         }
     }
 }
