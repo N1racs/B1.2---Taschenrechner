@@ -15,25 +15,47 @@ namespace B1._2___Taschenrechner
             //Text
             string first = "Erste Zahl!";
             string second = "Zweite Zahl!";
-            string enterOperator = "Operator eingeben!";
+            string enterOperator = "Operator eingeben! (+, -, /, *)";
             string endResult = "Resultat = ";
-            string invalide = "Ungültige Zahl! Versuche es noch einmal.";
+            string invalide = "Ungültige Zahl! \n" +
+                "Versuche es noch einmal.";
 
             //console output
             float a, b, result;
             Console.WriteLine(first);
-            Console.Write(">");
-            a = float.Parse(Console.ReadLine());
+            Console.Write("> ");
+
+            while (!float.TryParse(Console.ReadLine(), out a))
+            {
+                Console.WriteLine(invalide);
+                Console.Write("> ");
+            }
 
             Console.WriteLine(second);
-            Console.Write(">");
-            b = float.Parse(Console.ReadLine());
+            Console.Write("> ");
 
+            while (!float.TryParse(Console.ReadLine(), out b))
+            {
+                Console.WriteLine(invalide);
+                Console.Write("> ");
+            }
 
-            Console.WriteLine(enterOperator);
-            Console.Write(">");
+            string opp;
+            
+            do
+            {
+                Console.WriteLine(enterOperator);
+                Console.Write("> ");
 
-            string opp = Console.ReadLine();
+                opp = Console.ReadLine();
+
+                if (opp != "+" && opp != "-" && opp != "*" && opp != "/")
+                {
+                    Console.WriteLine(invalide);
+                }
+
+            } 
+            while (opp != "+" && opp != "-" && opp != "*" && opp != "/");
 
             //switch-case
             switch (opp)
@@ -58,10 +80,8 @@ namespace B1._2___Taschenrechner
                     Console.WriteLine(endResult + result);
 
                     break;
-                default:
-                    Console.WriteLine(invalide);
 
-                    break;
+                    
             }
 
             Console.ReadLine();
